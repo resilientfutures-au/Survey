@@ -746,7 +746,12 @@ function submitSurvey() {
     comments: document.getElementById('open-text').value || null,
     submittedAt: new Date().toISOString()
   };
-  console.log('Survey result:', JSON.stringify(result, null, 2));
+  fetch('https://script.google.com/macros/s/AKfycby6EJfPoeZPR18w1xQJG1Rz7024DwHGcHBQtFDzPEDmWeGGiQF2CaI1E25ggsO5_nvS/exec', {
+  method: 'POST',
+  mode: 'no-cors',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(result)
+});
 
   // Show success
   document.getElementById('survey-form').style.display = 'none';
