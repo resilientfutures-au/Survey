@@ -948,16 +948,16 @@ function submitSurvey() {
 
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxE7DHWW9bDm7C-5XcEQK6GhxGW42SoUx3OLn5EjoX5cI27l7zFYNRuNlWpYs17hriDSQ/exec';
 
-  if (APPS_SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbxE7DHWW9bDm7C-5XcEQK6GhxGW42SoUx3OLn5EjoX5cI27l7zFYNRuNlWpYs17hriDSQ/exec') {
-    fetch(APPS_SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(result)
-    });
-  } else {
-    console.log('Survey submission data (Apps Script URL not configured):', result);
-  }
+  fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(result)
+  }).then(function() {
+    console.log('Survey submitted successfully.');
+  }).catch(function(err) {
+    console.error('Submission error:', err);
+  });
 
   // Show success
   localStorage.removeItem(STORAGE_KEY);
