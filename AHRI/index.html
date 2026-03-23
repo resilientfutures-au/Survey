@@ -509,7 +509,8 @@
 
   <!-- ROLE + OPTIONAL -->
   <div class="role-block">
-    <label class="field-label">Your Role</label>
+    <label class="field-label">Your Role <span style="color:#c0392b;">*</span></label>
+    <p id="role-error" style="display:none; color:#c0392b; font-size:13px; margin:0 0 8px 0;">Please select your role to continue.</p>
     <div class="role-options">
       <button class="role-btn" data-role="1" onclick="selectRole(this)">Board Member</button>
       <button class="role-btn" data-role="2" onclick="selectRole(this)">State President</button>
@@ -795,6 +796,7 @@ function selectRole(btn) {
   document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   selectedRole = btn.dataset.role;
+  document.getElementById('role-error').style.display = 'none';
   saveProgress();
 }
 
@@ -817,6 +819,16 @@ function updateProgress() {
 }
 
 function submitSurvey() {
+  // Validate role selection
+  const roleError = document.getElementById('role-error');
+  if (!selectedRole) {
+    roleError.style.display = 'block';
+    document.querySelector('.role-block').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  } else {
+    roleError.style.display = 'none';
+  }
+
   const missing = [];
   for (let i = 1; i <= 47; i++) {
     if (!answers[`q${i}`]) missing.push(i);
