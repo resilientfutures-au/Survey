@@ -962,7 +962,10 @@ function submitSurvey() {
   // Show success
   localStorage.removeItem(STORAGE_KEY);
   document.getElementById('survey-form').style.display = 'none';
-  document.querySelector('.role-block')?.closest('.survey-shell')?.querySelectorAll('.role-block').forEach(el => el.style.display = 'none');
+  document.getElementById('section-1').style.display = 'none';
+  document.getElementById('resume-banner').style.display = 'none';
+  document.querySelector('.survey-header').style.display = 'none';
+  document.querySelector('.header-top').style.display = 'none';
   document.getElementById('success-screen').style.display = 'block';
   document.getElementById('progress-bar').style.width = '100%';
   window.scrollTo({ top: 0, behavior: 'smooth' });
