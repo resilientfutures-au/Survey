@@ -70,23 +70,48 @@
   /* ── SURVEY HEADER ── */
   .survey-header {
     border-bottom: 1px solid var(--border);
-    padding-bottom: 40px;
+    padding-bottom: 48px;
     margin-bottom: 56px;
   }
   .survey-header .org-label {
     font-size: 11px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
     display: block;
   }
   .survey-header h1 {
-    font-size: clamp(24px, 5vw, 38px);
-    line-height: 1.15;
+    font-size: clamp(26px, 5vw, 42px);
+    line-height: 1.12;
     color: var(--ink);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 20px;
+  }
+  .survey-header h1::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 56px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius: 2px;
+  }
+  .survey-header .header-subtitle {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-top: 20px;
     margin-bottom: 20px;
+    opacity: 0.65;
   }
   .survey-header .intro-text {
     font-size: 15px;
@@ -510,7 +535,8 @@
   <!-- SURVEY HEADER -->
   <div class="survey-header">
     <span class="org-label">Australian College of Optometry · Strategic Plan 2027–2031 · Confidential</span>
-    <h1>Australian College of Optometry (ACO) — Internal Staff Survey</h1>
+    <h1>Australian College of<br>Optometry (ACO)</h1>
+    <p class="header-subtitle">Internal Staff Survey</p>
     <p class="intro-text">Thank you for participating in ACO's strategic planning process. This survey is designed to capture your perspectives on ACO's current strategic direction and to help inform the development of its next strategic plan. Your input, as part of a broad cross-section of ACO's people, is critical to ensuring the new strategy reflects diverse perspectives from across the organisation.</p>
     <p class="intro-text">The survey should take approximately 20–25 minutes to complete.</p>
     <p class="intro-text">Your responses are confidential. Individual responses will not be attributed to specific respondents in any reporting. Results will be used solely for the purposes of ACO's 2026 strategic planning process and only aggregated themes will be shared.</p>
